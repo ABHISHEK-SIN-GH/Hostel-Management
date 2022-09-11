@@ -43,7 +43,7 @@ routerStudent.get("/name/:search", async (req,res)=>{
     }
 });
 
-routerStudent.post("/:id", async (req,res)=>{
+routerStudent.put("/:id", async (req,res)=>{
     const student = req.body;
     const editStudent = Student(student);
     try {

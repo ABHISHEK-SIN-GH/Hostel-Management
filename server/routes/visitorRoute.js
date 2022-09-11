@@ -37,7 +37,7 @@ routerVisitor.get("/:id", async (req,res)=>{
 routerVisitor.get("/name/:search", async (req,res)=>{
     const search = req.params.search;
     try {
-        const visitor = await Visitor.findOne({_id:search});
+        const visitor = await Visitor.findOne({vname:search});
         res.status(200).json(visitor);
     } catch (error) {
         res.status(404).json({message:error.message});

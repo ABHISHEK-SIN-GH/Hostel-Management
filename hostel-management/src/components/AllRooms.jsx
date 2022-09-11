@@ -144,7 +144,7 @@ export default function AllRooms() {
         <MDBModalDialog>
           <MDBModalContent>
             <MDBModalHeader className='bg-primary'>
-              <MDBModalTitle className='text-white'>{}</MDBModalTitle>
+              <MDBModalTitle className='text-white'>Room No. {res.roomNo}</MDBModalTitle>
               <button className='btn-close btn-light' onClick={toggleShowX}></button>
             </MDBModalHeader>
             <MDBModalBody>

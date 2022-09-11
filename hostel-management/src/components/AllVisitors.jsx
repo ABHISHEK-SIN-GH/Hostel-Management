@@ -14,15 +14,44 @@ import {
   MDBInput
 } from 'mdb-react-ui-kit';
 import { useEffect, useState } from 'react';
-import { allVisitor,deleteVisitor } from '../services/visitorApi';
+import { allVisitor,deleteVisitor, getVisitorByName } from '../services/visitorApi';
 import Moment from 'moment';
 
 
 export default function AllVisitors() {
 
+  const defaultVisitor = {
+    vname: '',
+    stname: '',
+    vmob: 0,
+    relation: '',
+    visitTimeIN: '',
+    visitTimeOut: '',
+    visitDate: ''
+  }
+
   const [basicModal, setBasicModal] = useState(false);
 
   const toggleShow = () => setBasicModal(!basicModal);
+
+  const [basicModalX, setBasicModalX] = useState(false);
+
+  const toggleShowX = () => setBasicModalX(!basicModalX);
+
+  const [search, setSearch] = useState('');
+
+  const [res, setRes] = useState(defaultVisitor);
+
+  const onValChange = (e) => {
+    setSearch(e.target.value);
+  }
+  
+  const searchFunc = async () => {
+     const sdata = await getVisitorByName(search);
+     setRes(sdata.data);
+     toggleShowX();
+     console.log(sdata.data);
+  }
 
   useEffect(() => {
     visitors();
@@ -102,15 +131,37 @@ export default function AllVisitors() {
               <button className='btn-close' onClick={toggleShow}></button>
             </MDBModalHeader>
             <MDBModalBody>
-              <MDBInput label='Enter Visitor Name' id='form1' type='text' />
+              <MDBInput label='Enter Visitor Name' id='form1' type='text' onChange={(e)=>onValChange(e)}/>
             </MDBModalBody>
             <MDBModalFooter>
               <button className='btn btn-danger' onClick={toggleShow}>Close</button>
-              <button className='btn btn-primary'>Search</button>
+              <button className='btn btn-primary' onClick={searchFunc}>Search</button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
     </MDBModal>
+    <MDBModal show={basicModalX} setShow={setBasicModalX} tabIndex='-1'>
+        <MDBModalDialog>
+          <MDBModalContent>
+            <MDBModalHeader className='bg-primary'>
+              <MDBModalTitle className='text-white'>{res.vname}</MDBModalTitle>
+              <button className='btn-close btn-light' onClick={toggleShowX}></button>
+            </MDBModalHeader>
+            <MDBModalBody>
+              <div className='text-start'>
+              <li><b>Visitor ID: </b>{res._id}</li>
+              <li><b>Visitor Name: </b>{res.vname}</li>
+              <li><b>Student Name: </b>{res.stname}</li>
+              <li><b>Visitor Mob. No.: </b>{res.vmob}</li>
+              <li><b>Relation: </b>{res.relation}</li>
+              <li><b>Visitor IN Time: </b>{res.visitTimeIN}</li>
+              <li><b>Visitor OUT Time: </b>{res.visitTimeOut}</li>
+              <li><b>Visitor Date: </b>{Moment(res.visitDate).format("D/M/Y")}</li>
+              </div>
+            </MDBModalBody>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
    </div>
   );
 }

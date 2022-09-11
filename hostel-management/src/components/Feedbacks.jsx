@@ -12,6 +12,7 @@ export default function Feedbacks() {
   let navigate = useNavigate();
 
   const defaultFeedback = {
+    name:"",
     subject: "",
     description: ""
   }

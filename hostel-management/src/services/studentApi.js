@@ -36,7 +36,7 @@ export const getStudentByName = async (search) => {
 
 export const editStudent = async (student, id) => {
     try{
-       return await axios.post(`${url}/${id}`, student)
+       return await axios.put(`${url}/${id}`, student)
     }catch(e){
         console.log("Error:",e);
     }

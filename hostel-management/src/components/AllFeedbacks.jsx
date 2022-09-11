@@ -14,15 +14,40 @@ import {
   MDBInput
 } from 'mdb-react-ui-kit';
 import { useEffect, useState } from 'react';
-import { allFeedback, deleteFeedback } from '../services/feedbackApi.js';
+import { allFeedback, deleteFeedback, getFeedbackBySubject } from '../services/feedbackApi.js';
 import Moment from 'moment';
 
 
 export default function AllFeedbacks() {
 
+  const defaultFeedback = {
+    name:"",
+    subject: "",
+    description: ""
+  }
+
   const [basicModal, setBasicModal] = useState(false);
 
   const toggleShow = () => setBasicModal(!basicModal);
+
+  const [basicModalX, setBasicModalX] = useState(false);
+
+  const toggleShowX = () => setBasicModalX(!basicModalX);
+
+  const [search, setSearch] = useState('');
+
+  const [res, setRes] = useState(defaultFeedback);
+
+  const onValChange = (e) => {
+    setSearch(e.target.value);
+  }
+  
+  const searchFunc = async () => {
+     const sdata = await getFeedbackBySubject(search);
+     setRes(sdata.data);
+     toggleShowX();
+    //  console.log(sdata.data);
+  }
 
   useEffect(() => {
     feedbacks();
@@ -96,15 +121,33 @@ export default function AllFeedbacks() {
               <button className='btn-close' onClick={toggleShow}></button>
             </MDBModalHeader>
             <MDBModalBody>
-              <MDBInput label='Enter Subject Name' id='form1' type='text' />
+              <MDBInput label='Enter Subject Name' id='form1' type='text' onChange={(e)=>onValChange(e)}/>
             </MDBModalBody>
             <MDBModalFooter>
               <button className='btn btn-danger' onClick={toggleShow}>Close</button>
-              <button className='btn btn-primary'>Search</button>
+              <button className='btn btn-primary' onClick={searchFunc}>Search</button>
             </MDBModalFooter>
           </MDBModalContent>
         </MDBModalDialog>
     </MDBModal>
+    <MDBModal show={basicModalX} setShow={setBasicModalX} tabIndex='-1'>
+        <MDBModalDialog>
+          <MDBModalContent>
+            <MDBModalHeader className='bg-primary'>
+              <MDBModalTitle className='text-white'>{res.name}'s Feedback</MDBModalTitle>
+              <button className='btn-close btn-light' onClick={toggleShowX}></button>
+            </MDBModalHeader>
+            <MDBModalBody>
+              <div className='text-start'>
+              <li>{res._id}</li>
+              <li>{res.name}</li>
+              <li>{res.subject}</li>
+              <li>{res.description}</li>
+              </div>
+            </MDBModalBody>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
    </div>
   );
 }

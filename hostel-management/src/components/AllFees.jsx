@@ -103,12 +103,12 @@ export default function AllFees() {
             <tr key={st._id}>
             <td style={{width:"20px"}}>{st._id}</td>
             <td style={{width:"200px"}}>{st.studentName}</td>
-            <td style={{width:"40px"}}>{Moment(st.dueDate).format('d/M/y')}</td>
+            <td style={{width:"40px"}}>{Moment(st.dueDate).format('YYYY-MM-DD')}</td>
             <td style={{width:"100px"}}>{st.dueAmount}</td>
             <td style={{width:"20px"}}>{st.deposit}</td>
             <td style={{width:"40px"}}>{st.rent}</td>
             <td style={{width:"40px"}}>{st.paymentMode}</td>
-            <td style={{width:"40px"}}>{Moment(st.paymentDate).format('d/M/y')}</td>
+            <td style={{width:"40px"}}>{Moment(st.paymentDate).format('YYYY-MM-DD')}</td>
             <td>
                 <MDBBtn className='py-1' color='primary' size='sm' href={`/editFee/${st._id}`}>
                     <small>Edit</small>
@@ -144,19 +144,19 @@ export default function AllFees() {
         <MDBModalDialog>
           <MDBModalContent>
             <MDBModalHeader className='bg-primary'>
-              <MDBModalTitle className='text-white'>{}</MDBModalTitle>
+              <MDBModalTitle className='text-white'>{res.studentName}' Fees ({Moment(res.paymentDate).format('YYYY-MM-DD')})</MDBModalTitle>
               <button className='btn-close btn-light' onClick={toggleShowX}></button>
             </MDBModalHeader>
             <MDBModalBody>
               <div className='text-start'>
-              <li><b>Room ID:</b> {res._id}</li>
-              <li><b>Room Number:</b> {res.roomNo}</li>
-              <li><b>Number of Beds:</b> {res.numOfBeds}</li>
-              <li><b>Vacant Beds:</b> {res.bedsVacant}</li>
-              <li><b>Rent of Room:</b> {res.rent}</li>
-              <li><b>Student Names:</b> {res.studentNames?res.studentNames:"Nil"}</li>
-              <li><b>Student IDs:</b> {res.studentIds?res.studentIds:"Nil"}</li>
-              <li><b>Room Status:</b> {res.status}</li>
+              <li><b>FEE ID:</b> {res._id}</li>
+              <li><b>Student Name:</b> {res.studentName}</li>
+              <li><b>Due Date:</b> {Moment(res.dueDate).format('YYYY-MM-DD')}</li>
+              <li><b>Due Amount:</b> {res.dueAmount}</li>
+              <li><b>Deposit Amount:</b> {res.deposit}</li>
+              <li><b>Room Rent:</b> {res.rent}</li>
+              <li><b>Payment Mode:</b> {res.paymentMode}</li>
+              <li><b>Payment Date:</b> {Moment(res.paymentDate).format('YYYY-MM-DD')}</li>
               </div>
             </MDBModalBody>
           </MDBModalContent>
