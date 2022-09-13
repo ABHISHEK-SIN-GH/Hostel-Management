@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from 'react';
 import { allVisitor,deleteVisitor, getVisitorByName } from '../services/visitorApi';
 import Moment from 'moment';
+import AdminNavbar from "../components/AdminNavbar";
 
 
 export default function AllVisitors() {
@@ -73,6 +74,7 @@ export default function AllVisitors() {
 
   return (
    <div>
+    <AdminNavbar navL="visitor"/>
      <div className='mt-5 mb-3 bg-danger'>
         <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>All Visitors</h1>
     </div>

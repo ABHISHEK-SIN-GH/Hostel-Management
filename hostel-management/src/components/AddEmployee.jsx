@@ -1,5 +1,6 @@
 import React from 'react'
 import { addEmployee } from '../services/employeeApi'
+import AdminNavbar from "../components/AdminNavbar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -40,6 +41,7 @@ export default function AddEmployee() {
 
   return (
     <div>
+        <AdminNavbar navL="employee"/>
         <div className='mt-5 mb-5 bg-success container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>ADD New Employees</h1>
         </div>

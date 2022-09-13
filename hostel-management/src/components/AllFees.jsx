@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from 'react';
 import { allFees,deleteFee, getFee } from '../services/feesApi';
 import Moment from 'moment';
+import AdminNavbar from "../components/AdminNavbar";
 
 
 export default function AllFees() {
@@ -73,6 +74,7 @@ export default function AllFees() {
 
   return (
    <div>
+    <AdminNavbar navL="fees"/>
      <div className='mt-5 mb-3 bg-danger'>
         <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>All Fees Entry</h1>
     </div>

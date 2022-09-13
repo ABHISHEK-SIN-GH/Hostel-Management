@@ -7,6 +7,7 @@ import {
   MDBInput,
   MDBRadio
 } from 'mdb-react-ui-kit';
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function EditStudent() {
 
@@ -50,6 +51,7 @@ export default function EditStudent() {
 
   return (
     <div>
+      <AdminNavbar navL="student"/>
       <div className='mt-5 mb-5 bg-primary container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>Edit Student</h1>
       </div>

@@ -6,6 +6,7 @@ import {
   MDBInput,
   MDBRadio
 } from 'mdb-react-ui-kit';
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function EditRoom() {
 
@@ -46,6 +47,7 @@ const editRoomNew = async (e) => {
 
   return (
     <div>
+        <AdminNavbar navL="room"/>
         <div className='mt-5 mb-5 bg-primary container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>Edit Room</h1>
         </div>

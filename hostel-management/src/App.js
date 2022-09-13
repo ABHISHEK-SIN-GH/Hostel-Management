@@ -3,7 +3,6 @@ import AddStudent from "./components/AddStudent";
 import AddEmployee from "./components/AddEmployee";
 import AddRoom from "./components/AddRoom";
 import AddVisitor from "./components/AddVisitor";
-import AdminNavbar from "./components/AdminNavbar";
 import Fees from "./components/Fees";
 import Feedbacks from "./components/Feedbacks";
 import AllStudents from "./components/AllStudents";
@@ -18,6 +17,7 @@ import EditRoom from "./components/EditRoom";
 import EditFee from "./components/EditFee";
 import EditVisitor from "./components/EditVisitor";
 import EditFeedback from "./components/EditFeedback";
+import LoginPage from "./components/LoginPage";
 import {
   BrowserRouter as Router,
   Routes,
@@ -28,8 +28,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AdminNavbar/>
         <Routes>
+          <Route path="/" element={<LoginPage/>} />
           <Route path="/editStudent/:id" element={<EditStudent/>} />
           <Route path="/editEmployee/:id" element={<EditEmployee/>} />
           <Route path="/editRoom/:id" element={<EditRoom/>} />

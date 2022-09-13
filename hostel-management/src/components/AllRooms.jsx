@@ -16,7 +16,7 @@ import {
 import { useEffect, useState } from 'react';
 import { allRooms,deleteRoom, getRoomByNumber } from '../services/roomApi'
 import Moment from 'moment';
-
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function AllRooms() {
 
@@ -73,6 +73,7 @@ export default function AllRooms() {
 
   return (
    <div>
+     <AdminNavbar navL="room"/>
      <div className='mt-5 mb-3 bg-danger'>
         <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>All Rooms</h1>
     </div>

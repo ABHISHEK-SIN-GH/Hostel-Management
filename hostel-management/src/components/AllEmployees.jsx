@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from 'react';
 import { allEmployee, deleteEmployee, getEmployeeByName } from '../services/employeeApi'
 import Moment from 'moment';
+import AdminNavbar from "../components/AdminNavbar";
 
 
 export default function AllEmployees() {
@@ -78,6 +79,7 @@ export default function AllEmployees() {
 
   return (
    <div>
+     <AdminNavbar navL="employee"/>
      <div className='mt-5 mb-3 bg-danger'>
         <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>All Employees</h1>
     </div>

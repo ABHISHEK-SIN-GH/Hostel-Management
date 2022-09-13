@@ -17,8 +17,7 @@ import { useEffect, useState } from 'react';
 import { allStudent,deleteStudent, getStudentByName } from '../services/studentApi.js';
 import Moment from 'moment';
 import { useNavigate } from "react-router-dom";
-
-
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function AllStudents() {
 
@@ -80,6 +79,7 @@ export default function AllStudents() {
 
   return (
    <div>
+   <AdminNavbar navL="student"/>
     <div className='mt-5 mb-3 bg-danger'>
         <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>All Students</h1>
     </div>

@@ -6,6 +6,7 @@ import {
   MDBInput,
   MDBTextArea
 } from 'mdb-react-ui-kit';
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function EditFeedback() {
 
@@ -41,6 +42,7 @@ export default function EditFeedback() {
 
   return (
     <div>
+        <AdminNavbar navL="feedback"/>
         <div className='mt-5 mb-5 bg-primary container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>Edit Feedback</h1>
         </div>

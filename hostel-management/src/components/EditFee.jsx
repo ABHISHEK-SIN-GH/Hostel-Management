@@ -7,6 +7,7 @@ import {
   MDBRadio
 } from 'mdb-react-ui-kit';
 import Moment from 'moment';
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function EditFee() {
 
@@ -47,6 +48,7 @@ export default function EditFee() {
 
   return (
     <div>
+        <AdminNavbar navL="fees"/>
         <div className='mt-5 mb-5 bg-primary container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>Edit Fees Entry</h1>
         </div>

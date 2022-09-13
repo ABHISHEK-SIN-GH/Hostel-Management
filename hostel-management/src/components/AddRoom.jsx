@@ -6,6 +6,7 @@ import {
   MDBRadio
 } from 'mdb-react-ui-kit';
 import { addRoom }  from '../services/roomApi.js'
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function AddRoom() {
 
@@ -34,6 +35,7 @@ const addRoomNew = async (e) => {
 
   return (
     <div>
+        <AdminNavbar navL="room"/>
         <div className='mt-5 mb-5 bg-success container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>ADD New Room</h1>
         </div>

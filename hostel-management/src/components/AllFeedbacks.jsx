@@ -16,6 +16,7 @@ import {
 import { useEffect, useState } from 'react';
 import { allFeedback, deleteFeedback, getFeedbackBySubject } from '../services/feedbackApi.js';
 import Moment from 'moment';
+import AdminNavbar from "../components/AdminNavbar";
 
 
 export default function AllFeedbacks() {
@@ -69,6 +70,7 @@ export default function AllFeedbacks() {
 
   return (
    <div>
+     <AdminNavbar navL="feedback"/>
      <div className='mt-5 mb-3 bg-danger'>
         <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>All Feedbacks</h1>
     </div>

@@ -6,6 +6,7 @@ import {
   MDBTextArea
 } from 'mdb-react-ui-kit';
 import { addFeedback } from "../services/feedbackApi.js"
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function Feedbacks() {
 
@@ -30,6 +31,7 @@ export default function Feedbacks() {
 
   return (
     <div>
+        <AdminNavbar navL="feedback"/>
         <div className='mt-5 mb-5 bg-success container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>ADD New Feedback</h1>
         </div>

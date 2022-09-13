@@ -6,6 +6,7 @@ import {
   MDBRadio
 } from 'mdb-react-ui-kit';
 import { addFees } from '../services/feesApi.js'
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function Fees() {
 
@@ -34,6 +35,7 @@ export default function Fees() {
 
   return (
     <div>
+        <AdminNavbar navL="fees"/>
         <div className='mt-5 mb-5 bg-success container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>ADD Fees Entry</h1>
         </div>

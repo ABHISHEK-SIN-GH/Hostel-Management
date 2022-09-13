@@ -5,6 +5,7 @@ import {
   MDBInput
 } from 'mdb-react-ui-kit';
 import { addVisitor } from "../services/visitorApi.js"
+import AdminNavbar from "../components/AdminNavbar";
 
 export default function AddVisitor() {
 
@@ -33,6 +34,7 @@ export default function AddVisitor() {
 
   return (
     <div>
+        <AdminNavbar navL="visitor"/>
         <div className='mt-5 mb-5 bg-success container rounded-pill'>
           <h1 className='border border-3 border-dark text-dark d-inline px-5 py-3'>ADD New Visitor</h1>
         </div>
