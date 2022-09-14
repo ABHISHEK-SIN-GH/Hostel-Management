@@ -1,18 +1,71 @@
 import React from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   MDBInput,
   MDBRadio,
   MDBBtn
 } from 'mdb-react-ui-kit';
-import AdminNavbar from "../components/AdminNavbar";
+import { loginAdmin, loginEmployee, loginOwner, loginStudent } from '../services/loginApi';
 
 export default function LoginPage() {
 
+  const defaultUser = {
+    user:"student",
+    userEmail:"",
+    userPassword:""
+  }
+
+  const [user, setUser] = useState(defaultUser);
+
+  const onValChange = (e) => {
+    setUser({...user,[e.target.name]:e.target.value});
+  }
+
   const navigate = useNavigate();
 
-  const login = () => {
-    navigate("/students");
+  const login = async () => {
+
+    if (user.user=="owner") {
+      const ownLog = await loginOwner(user);
+      if (ownLog.data==null) {
+        alert("No user Found!!");
+      }else{
+        // console.log(ownLog.data);
+        navigate('/ownerPage');
+      }
+    } 
+    
+    else if (user.user=="employee") {
+      const empLog = await loginEmployee(user);
+      if (empLog.data==null) {
+        alert("No user Found!!");
+      }else{
+        // console.log(empLog.data);
+        navigate('/employePage');
+      }
+    } 
+    
+    else if (user.user=="admin") {
+      const adLog = await loginAdmin(user);
+      if (adLog.data==null) {
+        alert("No user Found!!");
+      }else{
+        // console.log(adLog.data);
+        navigate('/students');
+      }
+    } 
+    
+    else {
+      const studLog = await loginStudent(user);
+      if (studLog.data==null) {
+        alert("No user Found!!");
+      }else{
+        // console.log(studLog.data);
+        navigate('/studentPage');
+      }
+    }
+
   }
 
   return (
@@ -23,28 +76,28 @@ export default function LoginPage() {
               <div className='text-white'>
               <h1 className='mt-5 fw-bold' style={{fontFamily:"Bradley Hand, cursive"}}>Hostel-Management</h1>
               <p className='my-3' style={{fontFamily:"Bradley Hand, cursive"}}>Please login to continue</p>
-              <form className='container py-3 my-3 border border-2 px-3 rounded rounded-3' style={{maxWidth:"600px",backgroundColor: 'rgba(0, 0, 0, 0.7)'}}>
-              <MDBInput className='mb-3 bg-light' type='email' id='form1Example1' label='Email address' autoComplete='false' autoFocus="false"/>
-              <MDBInput className='mb-3 bg-light' type='password' id='form1Example2' label='Password' autoComplete='false' autoFocus="false"/>
+              <form className='container py-3 my-3 border border-2 px-3 rounded rounded-3' style={{maxWidth:"600px",backgroundColor: 'rgba(0, 0, 0, 0.7)'}} autoComplete="off">
+              <MDBInput className='mb-3 bg-light' name='userEmail' type='email' id='form1Example1' onChange={(e)=>onValChange(e)} label='Email address' autoComplete="off"/>
+              <MDBInput className='mb-3 bg-light' name='userPassword' type='password' id='form1Example2' onChange={(e)=>onValChange(e)} label='Password' autoComplete="off"/>
 
               <div className='row mb-3 text-start'>
                   <div className='col-md-3 col-6'>
-                  <MDBRadio name='flexRadioDefault' id='flexRadioDefault1' label='As Student' defaultChecked/>
+                  <MDBRadio name='user' id='flexRadioDefault1' value="student" label='As Student' onChange={(e)=>onValChange(e)} defaultChecked/>
                   </div>
                   <div className='col-md-3 col-6'>
-                  <MDBRadio name='flexRadioDefault' id='flexRadioDefault2' label='As Employee'/>
+                  <MDBRadio name='user' id='flexRadioDefault2' value="employee" label='As Employee' onChange={(e)=>onValChange(e)}/>
                   </div>
                   <div className='col-md-3 col-6'>
-                  <MDBRadio name='flexRadioDefault' id='flexRadioDefault3' label='As Admin'/>
+                  <MDBRadio name='user' id='flexRadioDefault3' value="admin" label='As Admin' onChange={(e)=>onValChange(e)}/>
                   </div>
                   <div className='col-md-3 col-6'>
-                  <MDBRadio name='flexRadioDefault' id='flexRadioDefault3' label='As Owner'/>
+                  <MDBRadio name='user' id='flexRadioDefault4' value="owner" label='As Owner' onChange={(e)=>onValChange(e)}/>
                   </div>
               </div>
 
-              <MDBBtn type='button' className='mb-3' block onClick={login}>
+              <button type='button' className='d-block w-100 mb-3 btn btn-primary' onClick={login}>
                 Sign in
-              </MDBBtn>
+              </button>
 
               <div className='text-center'>
                 <p>

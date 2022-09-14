@@ -9,6 +9,7 @@ import routerRoom from './routes/roomRoute.js';
 import routerFee from './routes/feeRoute.js';
 import routerVisitor from './routes/visitorRoute.js';
 import routerFeedback from './routes/feedbackRoute.js';
+import routerLogin from './routes/loginRoute.js';
 
 const app = express();
 const PORT = 8000;
@@ -23,6 +24,7 @@ app.use('/room',routerRoom);
 app.use('/fees',routerFee);
 app.use('/visitor',routerVisitor);
 app.use('/feedback',routerFeedback);
+app.use('/login',routerLogin);
 
 dotenv.config();
 const username = process.env.DB_USERNAME

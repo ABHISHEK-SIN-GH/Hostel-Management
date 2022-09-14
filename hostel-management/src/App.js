@@ -18,6 +18,9 @@ import EditFee from "./components/EditFee";
 import EditVisitor from "./components/EditVisitor";
 import EditFeedback from "./components/EditFeedback";
 import LoginPage from "./components/LoginPage";
+import StudentPage from "./components/StudentPage";
+import EmployeePage from "./components/EmployeePage";
+import OwnerPage from './components/OwnerPage'
 import {
   BrowserRouter as Router,
   Routes,
@@ -48,6 +51,9 @@ function App() {
           <Route path="/Fees" element={<AllFees/>} />
           <Route path="/Visitors" element={<AllVisitors/>} />
           <Route path="/Feedbacks" element={<AllFeedbacks/>} />
+          <Route path="/studentPage" element={<StudentPage/>} />
+          <Route path="/employeePage" element={<EmployeePage/>} />
+          <Route path="/ownerPage" element={<OwnerPage/>} />
         </Routes>
       </Router>
     </div>
