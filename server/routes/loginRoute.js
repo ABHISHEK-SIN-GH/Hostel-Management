@@ -38,7 +38,7 @@ routerLogin.post("/admin", async (req,res)=>{
     const userEmail = user.userEmail;
     const userPassword = user.userPassword;
     try {
-        const admin = await Admin.findOne({uname:"admin",password:"root"});
+        const admin = await Admin.findOne({uname:userEmail,password:userPassword});
         // console.log("admin:",admin);
         res.status(200).json(admin);
     } catch (error) {

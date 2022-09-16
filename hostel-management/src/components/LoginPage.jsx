@@ -42,7 +42,7 @@ export default function LoginPage() {
         alert("No user Found!!");
       }else{
         // console.log(empLog.data);
-        navigate('/employePage');
+        navigate('/employeePage');
       }
     } 
     
@@ -95,15 +95,9 @@ export default function LoginPage() {
                   </div>
               </div>
 
-              <button type='button' className='d-block w-100 mb-3 btn btn-primary' onClick={login}>
+              <button type='button' className='d-block w-100 mb-2 btn btn-primary' onClick={login}>
                 Sign in
               </button>
-
-              <div className='text-center'>
-                <p>
-                  Not a member? <a href='#!'>Register</a>
-                </p>
-              </div>
 
               </form>
               <div className='my-4 border border-2 px-5 py-2 rounded rounded-pill mx-auto' style={{maxWidth:"600px", backgroundColor: 'rgba(0, 0, 0, 0.2)'}} >
