@@ -32,7 +32,7 @@ export default function LoginPage() {
         alert("No user Found!!");
       }else{
         // console.log(ownLog.data);
-        navigate('/ownerPage');
+        navigate('/studentsOwn');
       }
     } 
     

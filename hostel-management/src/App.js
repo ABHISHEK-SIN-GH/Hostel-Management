@@ -20,7 +20,6 @@ import EditFeedback from "./components/EditFeedback";
 import LoginPage from "./components/LoginPage";
 import StudentPage from "./components/StudentPage";
 import EmployeePage from "./components/EmployeePage";
-import OwnerPage from './components/OwnerPage';
 import StudentProfile from "./components/StudentProfile";
 import StudentPayment from "./components/StudentPayment";
 import FeedbackForm from "./components/FeedbackForm";
@@ -31,6 +30,12 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import AllStudentsOwn from "./components/AllStudentsOwn";
+import AllEmployeesOwn from "./components/AllEmployeesOwn";
+import AllRoomsOwn from "./components/AllRoomsOwn";
+import AllFeesOwn from "./components/AllFeesOwn";
+import AllVisitorsOwn from "./components/AllVisitorsOwn";
+import AllFeedbacksOwn from "./components/AllFeedbacksOwn";
 
 function App() {
   return (
@@ -56,9 +61,14 @@ function App() {
           <Route path="/Fees" element={<AllFees/>} />
           <Route path="/Visitors" element={<AllVisitors/>} />
           <Route path="/Feedbacks" element={<AllFeedbacks/>} />
+          <Route path="/StudentsOwn" element={<AllStudentsOwn/>} />
+          <Route path="/EmployeesOwn" element={<AllEmployeesOwn/>} />
+          <Route path="/RoomsOwn" element={<AllRoomsOwn/>} />
+          <Route path="/FeesOwn" element={<AllFeesOwn/>} />
+          <Route path="/VisitorsOwn" element={<AllVisitorsOwn/>} />
+          <Route path="/FeedbacksOwn" element={<AllFeedbacksOwn/>} />
           <Route path="/studentPage" element={<StudentPage/>} />
           <Route path="/employeePage" element={<EmployeePage/>} />
-          <Route path="/ownerPage" element={<OwnerPage/>} />
           <Route path="/studentProfile" element={<StudentProfile/>} />
           <Route path="/studentPayment" element={<StudentPayment/>} />
           <Route path="/feedbackForm" element={<FeedbackForm/>} />
