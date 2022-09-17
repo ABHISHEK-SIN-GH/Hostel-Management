@@ -20,7 +20,12 @@ import EditFeedback from "./components/EditFeedback";
 import LoginPage from "./components/LoginPage";
 import StudentPage from "./components/StudentPage";
 import EmployeePage from "./components/EmployeePage";
-import OwnerPage from './components/OwnerPage'
+import OwnerPage from './components/OwnerPage';
+import StudentProfile from "./components/StudentProfile";
+import StudentPayment from "./components/StudentPayment";
+import FeedbackForm from "./components/FeedbackForm";
+import EmployeePayment from "./components/EmployeePayment";
+import EmployeeProfile from "./components/EmployeeProfile";
 import {
   BrowserRouter as Router,
   Routes,
@@ -54,6 +59,11 @@ function App() {
           <Route path="/studentPage" element={<StudentPage/>} />
           <Route path="/employeePage" element={<EmployeePage/>} />
           <Route path="/ownerPage" element={<OwnerPage/>} />
+          <Route path="/studentProfile" element={<StudentProfile/>} />
+          <Route path="/studentPayment" element={<StudentPayment/>} />
+          <Route path="/feedbackForm" element={<FeedbackForm/>} />
+          <Route path="/employeeProfile" element={<EmployeeProfile/>} />
+          <Route path="/employeePayment" element={<EmployeePayment/>} />
         </Routes>
       </Router>
     </div>

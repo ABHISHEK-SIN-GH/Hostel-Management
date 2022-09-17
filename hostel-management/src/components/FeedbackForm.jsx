@@ -1,33 +1,59 @@
-import React from "react";
-import {
+import React from 'react';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { 
+  MDBTable, 
+  MDBTableHead, 
+  MDBTableBody,
   MDBContainer,
   MDBNavbar,
   MDBNavbarBrand,
   MDBIcon,
   MDBFooter,
-  MDBBtn
-} from 'mdb-react-ui-kit';
+  MDBInput,
+  MDBTextArea,
+  MDBBtn } from 'mdb-react-ui-kit';
+import { addFeedback } from "../services/feedbackApi.js"
 
-export default function EmployeePage() {
+export default function FeedbackForm() {
+
+  let navigate = useNavigate();
+
+  const defaultFeedback = {
+    name:"",
+    subject: "",
+    description: ""
+  }
+
+  const [feedback, setFeedback] = useState(defaultFeedback);
+
+  const onValueChange = (e) => {
+    setFeedback({...feedback,[e.target.name]:e.target.value});
+  }
+
+  const addFeedbackNew = async (e) => {
+      await addFeedback(feedback);
+      alert("Form submitted succefully!");
+  }
+  
   return (
     <div>
-      <div>
       <MDBNavbar light bgColor='light' className="py-3 border-bottom border-dark border-2">
         <MDBContainer fluid>
           <MDBNavbarBrand href='#'>
             <MDBIcon fas icon="hotel" />
-            <b className="mx-2">Hostel-Management <span className="text-primary">(Employee Portal)</span></b>
+            <b className="mx-2">Hostel-Management <span className="text-danger"></span></b>
           </MDBNavbarBrand>
         </MDBContainer>
       </MDBNavbar>
-      <div>
-        <div className="my-4 pt-3 row mx-auto d-flex justify-content-center align-items-center">
-          <a href="/employeeProfile" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="user-alt" className="me-3"/>Profile</h1></a>
-          <a href="/feedbackForm" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="envelope-open" className="me-3"/>Feedback</h1></a>
-          <a href="/employeePay" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon far icon="credit-card" className="me-3"/>Payment</h1></a>
-          <a href="/" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="sign-out-alt" className="me-3"/>Logout</h1></a>
-        </div>
-      </div>
+      <h3 className='my-4 py-3'>Feedback Form</h3>
+      <form className="container">
+          <MDBInput className="mb-4" id='name' name='name' label='Name' type="text" onChange={(e)=>onValueChange(e)}/>
+          <MDBInput className="mb-4" id='subject' name='subject' label='Subject' type="text" onChange={(e)=>onValueChange(e)}/>
+          <MDBTextArea className="mb-4" id='description' name='description' label='Description' type="text" onChange={(e)=>onValueChange(e)}/>
+          <button className='mb-4 d-block w-100 btn btn-success' type="button" onClick={addFeedbackNew}>Submit Feedback</button>
+      </form>
+      
       <MDBFooter className='bg-dark text-center text-white mt-5 position-fixed bottom-0 w-100'>
 
       <MDBContainer className='p-4 pb-0'>
@@ -63,8 +89,9 @@ export default function EmployeePage() {
           MDBootstrap.com
         </a>
       </div>
-    </MDBFooter>
+      </MDBFooter>
     </div>
-  </div>
   )
 }
+
+

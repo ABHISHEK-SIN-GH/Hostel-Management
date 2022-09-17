@@ -21,10 +21,10 @@ export default function StudentPage() {
       </MDBNavbar>
       <div>
         <div className="my-4 pt-3 row mx-auto d-flex justify-content-center align-items-center">
-          <div className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="user-alt" className="me-3"/>Profile</h1></div>
-          <div className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="envelope-open" className="me-3"/>Feedback</h1></div>
-          <div className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon far icon="credit-card" className="me-3"/>Payment</h1></div>
-          <div className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="sign-out-alt" className="me-3"/>Logout</h1></div>
+          <a href="/studentProfile" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="user-alt" className="me-3"/>Profile</h1></a>
+          <a href="/feedbackForm" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="envelope-open" className="me-3"/>Feedback</h1></a>
+          <a href="/studentPayment" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon far icon="credit-card" className="me-3"/>Payment</h1></a>
+          <a href="/" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="sign-out-alt" className="me-3"/>Logout</h1></a>
         </div>
       </div>
       <MDBFooter className='bg-dark text-center text-white mt-5 position-fixed bottom-0 w-100'>
@@ -62,7 +62,7 @@ export default function StudentPage() {
           MDBootstrap.com
         </a>
       </div>
-    </MDBFooter>
+      </MDBFooter>
     </div>
   );
 }
