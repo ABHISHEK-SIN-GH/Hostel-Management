@@ -67,13 +67,13 @@ function App() {
           <Route path="/FeesOwn" element={<AllFeesOwn/>} />
           <Route path="/VisitorsOwn" element={<AllVisitorsOwn/>} />
           <Route path="/FeedbacksOwn" element={<AllFeedbacksOwn/>} />
-          <Route path="/studentPage" element={<StudentPage/>} />
-          <Route path="/employeePage" element={<EmployeePage/>} />
-          <Route path="/studentProfile" element={<StudentProfile/>} />
-          <Route path="/studentPayment" element={<StudentPayment/>} />
+          <Route path="/studentPage/:id" element={<StudentPage/>} />
+          <Route path="/employeePage/:id" element={<EmployeePage/>} />
+          <Route path="/studentProfile/:id" element={<StudentProfile/>} />
+          <Route path="/studentPayment/:id" element={<StudentPayment/>} />
           <Route path="/feedbackForm" element={<FeedbackForm/>} />
-          <Route path="/employeeProfile" element={<EmployeeProfile/>} />
-          <Route path="/employeePayment" element={<EmployeePayment/>} />
+          <Route path="/employeeProfile/:id" element={<EmployeeProfile/>} />
+          <Route path="/employeePayment/:id" element={<EmployeePayment/>} />
         </Routes>
       </Router>
     </div>

@@ -42,7 +42,7 @@ export default function LoginPage() {
         alert("No user Found!!");
       }else{
         // console.log(empLog.data);
-        navigate('/employeePage');
+        navigate(`/employeePage/${empLog.data._id}`);
       }
     } 
     
@@ -61,8 +61,7 @@ export default function LoginPage() {
       if (studLog.data==null) {
         alert("No user Found!!");
       }else{
-        // console.log(studLog.data);
-        navigate('/studentPage');
+        navigate(`/studentPage/${studLog.data._id}`);
       }
     }
 

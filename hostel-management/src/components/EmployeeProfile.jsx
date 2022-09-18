@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Moment from 'moment';
 import { getEmployee } from '../services/employeeApi';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { 
   MDBTable, 
   MDBTableHead, 
@@ -15,6 +16,8 @@ import {
   MDBBtn } from 'mdb-react-ui-kit';
 
 export default function EmployeeProfile() {
+
+  const {id} = useParams();
 
   const defaultEmployee = {
     fname:'',
@@ -35,7 +38,7 @@ export default function EmployeeProfile() {
   const [employee, setEmployee] = useState(defaultEmployee);
 
   const searchFunc = async () => {
-    const sdata = await getEmployee(3);
+    const sdata = await getEmployee(id);
     setEmployee(sdata.data);
  }
 

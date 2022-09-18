@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Moment from 'moment';
 import { getStudent } from '../services/studentApi';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { 
   MDBTable, 
   MDBTableHead, 
@@ -14,7 +15,9 @@ import {
   MDBFooter,
   MDBBtn } from 'mdb-react-ui-kit';
 
-export default function StudentProfile() {
+export default function StudentProfile(props) {
+
+  const {id} = useParams();
 
   const defaultStudent = {
     fname:'',
@@ -32,7 +35,7 @@ export default function StudentProfile() {
   const [student, setStudent] = useState(defaultStudent);
 
   const searchFunc = async () => {
-    const sdata = await getStudent(27);
+    const sdata = await getStudent(id);
     setStudent(sdata.data);
  }
 

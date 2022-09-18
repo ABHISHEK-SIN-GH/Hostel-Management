@@ -1,4 +1,5 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import {
   MDBContainer,
   MDBNavbar,
@@ -7,8 +8,10 @@ import {
   MDBFooter,
   MDBBtn
 } from 'mdb-react-ui-kit';
-
 export default function StudentPage() {
+
+  const {id} = useParams();
+
   return (
     <div>
       <MDBNavbar light bgColor='light' className="py-3 border-bottom border-dark border-2">
@@ -21,9 +24,9 @@ export default function StudentPage() {
       </MDBNavbar>
       <div>
         <div className="my-4 pt-3 row mx-auto d-flex justify-content-center align-items-center">
-          <a href="/studentProfile" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="user-alt" className="me-3"/>Profile</h1></a>
+          <a href={"/studentProfile/"+id} className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="user-alt" className="me-3"/>Profile</h1></a>
           <a href="/feedbackForm" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="envelope-open" className="me-3"/>Feedback</h1></a>
-          <a href="/studentPayment" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon far icon="credit-card" className="me-3"/>Payment</h1></a>
+          <a href={"/studentPayment/"+id} className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon far icon="credit-card" className="me-3"/>Payment</h1></a>
           <a href="/" className="col-9 text-light col-md-4 p-4 p-md-5 bg-dark m-2 rounded"><h1 className="text-start fw-light"><MDBIcon fas icon="sign-out-alt" className="me-3"/>Logout</h1></a>
         </div>
       </div>
